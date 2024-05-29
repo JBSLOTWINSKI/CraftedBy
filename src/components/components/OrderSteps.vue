@@ -1,0 +1,78 @@
+<template>
+  <div class="order-steps-container">
+    <div
+        v-for="(step, index) in steps"
+        :key="index"
+        :class="['step', { active: currentStep >= index + 1 }]">
+      <div class="step-number">{{ index + 1 }}</div>
+      <div class="step-label">{{ step }}</div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'OrderSteps',
+  props: {
+    steps: {
+      type: Array,
+      required: true,
+    },
+    currentStep: {
+      type: Number,
+      required: true,
+    },
+  },
+};
+</script>
+
+<style scoped>
+.order-steps-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
+  z-index: -1;
+}
+
+.step.active:not(:last-child)::after {
+  background-color: #ea4e48;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.step.active .step-number {
+  background-color: #ea4e48;
+}
+
+.step-label {
+  text-align: center;
+}
+</style>

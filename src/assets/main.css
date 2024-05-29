@@ -2,37 +2,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'nunito';
+    src: url('~@/assets/font/Nunito/Nunito-VariableFont_wght.ttf');
+}
 
-/*#app {*/
-/*  max-width: 1280px;*/
-/*  margin: 0 auto;*/
-/*  padding: 2rem;*/
-/*  font-weight: normal;*/
-/*}*/
+:root{
+    --color-platinum: #DBDFE6;
+    --color-vermillon: #EA4E48;
+    --color-seasalt: #FCFAFA;
+    --color-cadet-gray: #9FA9BC;
+    --color-space-cadet: #2B2b42;
+    --color-dark-purple: #160c28;
+}
 
-/*a,*/
-/*.green {*/
-/*  text-decoration: none;*/
-/*  color: hsla(160, 100%, 37%, 1);*/
-/*  transition: 0.4s;*/
-/*  padding: 3px;*/
-/*}*/
+body {
+    font-family: 'nunito', sans-serif;
+    background: #FCFAFA;
+}
 
-/*@media (hover: hover) {*/
-/*  a:hover {*/
-/*    background-color: hsla(160, 100%, 37%, 0.2);*/
-/*  }*/
-/*}*/
+.max-w-1440 {
+    max-width: 1440px;
+}
 
-/*@media (min-width: 1024px) {*/
-/*  body {*/
-/*    display: flex;*/
-/*    place-items: center;*/
-/*  }*/
+.h-screen {
+    height: 100vh;
+}
 
-/*  #app {*/
-/*    display: grid;*/
-/*    grid-template-columns: 1fr 1fr;*/
-/*    padding: 0 2rem;*/
-/*  }*/
-/*}*/
+.parent {
+    position: relative;
+    z-index: 1;
+}
+
+.child {
+    position: relative;
+    z-index: 2;
+}
