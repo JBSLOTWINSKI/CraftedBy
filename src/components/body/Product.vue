@@ -28,7 +28,7 @@ export default {
     });
 
     return {
-      selectedProduct: productStore.selectedProduct,
+      productStore,
     };
   },
 };
@@ -36,10 +36,10 @@ export default {
 
 <template>
   <div>
-    <ImgProduct v-if="selectedProduct" :images="[selectedProduct.image]" />
+    <ImgProduct v-if="productStore.selectedProduct" :images="[productStore.selectedProduct.image]" />
     <div class="flex">
-      <ProductDescription v-if="selectedProduct" class="flex-2" :product="selectedProduct" />
-      <PersonnalisationPrice v-if="selectedProduct" class="flex-1" :product="selectedProduct" />
+      <ProductDescription v-if="productStore.selectedProduct" class="flex-2" :product="productStore.selectedProduct" />
+      <PersonnalisationPrice v-if="productStore.selectedProduct" class="flex-1" :product="productStore.selectedProduct" />
     </div>
   </div>
 </template>
