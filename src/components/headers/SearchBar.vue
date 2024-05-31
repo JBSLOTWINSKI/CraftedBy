@@ -1,75 +1,22 @@
 <template>
-  <div class="search-bar">
-    <select>
+  <div class="flex items-center bg-red-500 rounded-lg overflow-hidden w-96 h-8 border border-red-500">
+    <select class="bg-red-500 text-white px-2 text-base h-full cursor-pointer rounded-l-lg">
       <option value="Shop">Shop</option>
       <option value="Product">Product</option>
-      <img src="../../assets/defileicon.svg" alt="Search Icon" />
     </select>
-    <input type="text" placeholder="Search..." />
-    <button>
+    <input type="text" placeholder="Search..." class="border-none px-2 flex-grow text-base bg-white text-black h-full" />
+    <button class="px-2 cursor-pointer text-white h-full flex items-center">
       <router-link to="/catalog">
-      <img src="../../assets/loupeicon.svg" alt="Search Icon" />
+        <img src="../../assets/loupeicon.svg" alt="Search Icon" class="h-4 w-4" />
       </router-link>
     </button>
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import {defineComponent} from 'vue'
 
 export default defineComponent({
   name: 'SearchBar',
-  setup() {
-  }
 })
 </script>
-
-<style scoped>
-.search-bar {
-  display: flex;
-  align-items: center;
-  background-color: #EA4E48;
-  border-radius: 16px;
-  overflow: hidden;
-  width: 700px;
-  height: 32px;
-  border: 1px solid #EA4E48;
-  font-family: 'nunito', sans-serif;
-}
-
-.search-bar select {
-  background-color: #EA4E48;
-  color: #FCFAFA;
-  padding: 0 10px;
-  font-size: 18px;
-  height: 100%;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
-  cursor: pointer;
-  background-position: right 10px center;
-}
-
-.search-bar input {
-  border: none;
-  padding: 5px 10px;
-  flex-grow: 1;
-  font-size: 18px;
-  background-color: #FCFAFA;
-  color: #160C28;
-  height: 100%;
-}
-
-.search-bar button {
-  padding: 0 10px;
-  cursor: pointer;
-  color: #FCFAFA;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.search-bar button img {
-  height: 16px;
-  width: 16px;
-}
-</style>

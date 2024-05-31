@@ -14,7 +14,9 @@ export default {
         'space-cadet': '#2B2b42',
         'dark-purple': '#160c28',
       },
-
+      fontFamily: {
+        'nunito': ['Nunito', 'sans-serif'],
+      }
     },
   },
   plugins: [],
