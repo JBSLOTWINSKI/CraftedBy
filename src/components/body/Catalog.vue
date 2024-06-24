@@ -1,6 +1,6 @@
 <template>
   <!-- Main container with flex layout and wrapping -->
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap ">
     <!-- Iterate through products and render ProductCard for each product -->
     <ProductCard
         v-for="product in products"

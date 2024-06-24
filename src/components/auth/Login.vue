@@ -1,22 +1,15 @@
 <template>
-  <div class="login-container">
+  <div class="login-container text-dark-purple">
     <h2>Connexion</h2>
     <router-link to="/register" class="register-button">S'inscrire</router-link>
     <form @submit.prevent="handleSubmit">
       <div class="input-group">
-        <label for="username">nom d'utilisateur</label>
-        <input type="text" id="username" v-model="username" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" v-model="email" required />
       </div>
       <div class="input-group">
-        <label for="password">mot de passe</label>
+        <label for="password">Mot de passe</label>
         <input type="password" id="password" v-model="password" required />
-      </div>
-      <div class="options">
-        <div class="remember-me">
-          <input type="checkbox" id="remember-me" v-model="rememberMe" />
-          <label for="remember-me">Stay Connect</label>
-        </div>
-        <a href="#" class="forgot-password">mot de passe oublié ?</a>
       </div>
       <button type="submit" class="login-button">Se connecter</button>
     </form>
@@ -33,14 +26,12 @@ export default {
   setup() {
     const router = useRouter();
     const authStore = useAuthStore();
-    const username = ref('');
+    const email = ref('');
     const password = ref('');
-    const rememberMe = ref(false);
 
     const handleSubmit = async () => {
       try {
-        console.log('Attempting login with:', username.value, password.value);
-        const success = await authStore.login(username.value, password.value);
+        const success = await authStore.login({ email: email.value, password: password.value });
         if (success) {
           await router.push('/');
         } else {
@@ -53,9 +44,8 @@ export default {
     };
 
     return {
-      username,
+      email,
       password,
-      rememberMe,
       handleSubmit,
     };
   },
@@ -109,31 +99,13 @@ label {
   font-weight: bold;
 }
 
-input[type="text"],
+input[type="email"],
 input[type="password"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f0f0f0;
-}
-
-.options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.remember-me {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.forgot-password {
-  color: #333;
-  text-decoration: none;
-  font-size: 14px;
 }
 
 .login-button {

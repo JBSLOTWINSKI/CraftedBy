@@ -48,19 +48,19 @@ export default {
   right: -50%;
   width: 100%;
   height: 2px;
-  background-color: #ccc;
+  background-color: #DBDFE6; /* Couleur pour les étapes inactives */
   z-index: -1;
 }
 
 .step.active:not(:last-child)::after {
-  background-color: #ea4e48;
+  background-color: #EA4E48; /* Couleur pour les étapes actives */
 }
 
 .step-number {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #ccc;
+  background-color: #DBDFE6; /* Couleur pour les étapes inactives */
   color: white;
   display: flex;
   align-items: center;
@@ -69,10 +69,11 @@ export default {
 }
 
 .step.active .step-number {
-  background-color: #ea4e48;
+  background-color: #EA4E48; /* Couleur pour les étapes actives */
 }
 
 .step-label {
   text-align: center;
+  color: #2B2B42; /* Couleur du texte */
 }
 </style>

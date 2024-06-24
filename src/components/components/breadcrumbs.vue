@@ -5,29 +5,34 @@
 </template>
 
 <script>
-import {computed} from 'vue'
-import {useRoute} from 'vue-router'
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 
 export default {
   name: 'Breadcrumbs',
   setup() {
-    const route = useRoute()
+    const route = useRoute();
     const breadcrumbs = computed(() => {
-      let pathArray = route.path.split('/')
-      pathArray.shift()
+      let pathArray = route.path.split('/');
+      pathArray.shift();
       let breadcrumbs = pathArray.map((path, i) => {
-        return {path: '/' + pathArray.slice(0, i + 1).join('/') + '/', name: path}
-      })
-      breadcrumbs.unshift({path: '/', name: 'home /'})
-      return breadcrumbs
-    })
-    return {breadcrumbs}
+        return { path: '/' + pathArray.slice(0, i + 1).join('/'), name: path };
+      });
+      breadcrumbs.unshift({ path: '/', name: 'Home' });
+      return breadcrumbs;
+    });
+    return { breadcrumbs };
   }
-}
+};
 </script>
 
 <style scoped>
 .breadcrumb a {
   margin-right: 5px;
+  text-decoration: none;
+  color: #2B2b42; /* couleur pour correspondre à votre thème */
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
 }
 </style>

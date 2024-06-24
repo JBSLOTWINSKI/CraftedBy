@@ -6,53 +6,18 @@ import Order from '@/components/body/Order.vue';
 import Product from '@/components/body/Product.vue';
 import Login from "@/components/auth/Login.vue";
 import Register from "@/components/auth/Register.vue";
-import { useAuthStore } from "@/stores/auth.js";
 import Profile from "@/components/body/Profile.vue";
+import { useAuthStore } from "@/stores/auth.js";
 
 const routes = [
-    {
-        path: '/',
-        name: 'Home',
-        component: Home,
-    },
-    {
-        path: '/cart',
-        name: 'Cart',
-        component: Cart,
-    },
-    {
-        path: '/catalog',
-        name: 'Catalog',
-        component: Catalog,
-    },
-    {
-        path: '/order',
-        name: 'Order',
-        component: Order,
-        meta: { requiresAuth: true },
-    },
-    {
-        path: '/product/:id',
-        name: 'Product',
-        component: Product,
-        props: true,
-    },
-    {
-        path: '/login',
-        name: 'Login',
-        component: Login,
-    },
-    {
-        path: '/register',
-        name: 'Register',
-        component: Register,
-    },
-    {
-        path: '/profile',
-        name: 'Profile',
-        component: Profile,
-        meta: { requiresAuth: true },
-    },
+    { path: '/', name: 'Home', component: Home },
+    { path: '/cart', name: 'Cart', component: Cart },
+    { path: '/catalog', name: 'Catalog', component: Catalog },
+    { path: '/order', name: 'Order', component: Order, meta: { requiresAuth: true } },
+    { path: '/product/:id', name: 'Product', component: Product, props: true },
+    { path: '/login', name: 'Login', component: Login },
+    { path: '/register', name: 'Register', component: Register },
+    { path: '/profile', name: 'Profile', component: Profile, meta: { requiresAuth: true } },
 ];
 
 const router = createRouter({
