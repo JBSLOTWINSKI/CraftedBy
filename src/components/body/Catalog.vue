@@ -1,38 +1,39 @@
 <template>
   <!-- Main container with flex layout and wrapping -->
-  <div class="flex flex-wrap ">
-    <!-- Iterate through products and render ProductCard for each product -->
-    <ProductCard
-        v-for="product in products"
-        :key="product.id"
-        :id="product.id"
-        :title="product.title"
-        :description="product.description"
-        :price="product.price"
-        :image="product.image"
-    />
+  <div class="flex">
+    <div v-for="product in products" :key="product.id">
+      <ProductCard
+          :id="product.id"
+          :name="product.name"
+          :description="product.description"
+          :price="product.price"
+          :image="product.image"
+      />
+    </div>
   </div>
+
 </template>
 
 <script>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useProductStore } from '@/stores/product';
-import ProductCard from '../components/ProductCard.vue';
+import ProductCard from '@/components/components/ProductCard.vue';
 
 export default {
-  name: 'Catalog',
-  components: {ProductCard},
+  components: {
+    ProductCard,
+  },
   setup() {
     const productStore = useProductStore();
+    const products = ref([]);
 
-    // Fetch products from the API when the component is mounted
-    onMounted(() => {
-      productStore.fetchProducts();
+    onMounted(async () => {
+      await productStore.fetchProducts();
+      products.value = productStore.products;
     });
 
     return {
-      // Return the products from the store to be used in the template
-      products: productStore.products,
+      products,
     };
   },
 };

@@ -1,0 +1,15 @@
+meta {
+  name: Filter products by category
+  type: http
+  seq: 16
+}
+
+get {
+  url: http://api/products/category/{category}
+  body: none
+  auth: none
+}
+
+params:path {
+  category: 
+}

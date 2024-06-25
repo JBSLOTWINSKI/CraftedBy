@@ -3,7 +3,7 @@
     <div
         v-for="(step, index) in steps"
         :key="index"
-        :class="['step', { active: currentStep >= index + 1 }]">
+        :class="['step', { active: currentStep === index + 1 }]">
       <div class="step-number">{{ index + 1 }}</div>
       <div class="step-label">{{ step }}</div>
     </div>
@@ -48,19 +48,19 @@ export default {
   right: -50%;
   width: 100%;
   height: 2px;
-  background-color: #DBDFE6; /* Couleur pour les étapes inactives */
+  background-color: #DBDFE6;
   z-index: -1;
 }
 
 .step.active:not(:last-child)::after {
-  background-color: #EA4E48; /* Couleur pour les étapes actives */
+  background-color: #EA4E48;
 }
 
 .step-number {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #DBDFE6; /* Couleur pour les étapes inactives */
+  background-color: #DBDFE6;
   color: white;
   display: flex;
   align-items: center;
@@ -69,11 +69,11 @@ export default {
 }
 
 .step.active .step-number {
-  background-color: #EA4E48; /* Couleur pour les étapes actives */
+  background-color: #EA4E48;
 }
 
 .step-label {
   text-align: center;
-  color: #2B2B42; /* Couleur du texte */
+  color: #2B2B42;
 }
 </style>

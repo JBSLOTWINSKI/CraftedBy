@@ -1,5 +1,5 @@
 <script>
-import Breadcrumbs from "@/components/components/breadcrumbs.vue";
+import Breadcrumbs from "@/components/components/Breadcrumb.vue";
 import ProductCard from "@/components/components/ProductCard.vue";
 
 export default {

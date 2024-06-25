@@ -1,0 +1,15 @@
+meta {
+  name: Show a specific shop
+  type: http
+  seq: 20
+}
+
+get {
+  url: http://api/shops/{id}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}

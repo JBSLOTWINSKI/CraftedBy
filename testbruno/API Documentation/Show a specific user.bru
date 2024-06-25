@@ -1,0 +1,15 @@
+meta {
+  name: Show a specific user
+  type: http
+  seq: 27
+}
+
+get {
+  url: http://api/users/{id}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}

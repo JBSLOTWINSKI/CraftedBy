@@ -2,7 +2,7 @@
   <div class="cart-item">
     <img :src="item.image" alt="Product Image" class="item-image" />
     <div class="item-details">
-      <h3>{{ item.title }}</h3>
+      <h3>{{ item.name }}</h3>
       <p>Quantité : {{ item.quantity }}</p>
       <p>Taille : {{ item.size }}</p>
       <p>Prix unitaire : {{ item.price }}€</p>
@@ -23,7 +23,7 @@ export default {
       required: true
     }
   },
-  setup(props) {
+  setup() {
     const productStore = useProductStore();
 
     const removeFromCart = (productId) => {

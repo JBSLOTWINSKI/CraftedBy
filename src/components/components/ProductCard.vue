@@ -18,14 +18,27 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
-
 const props = defineProps({
-  id: Number,
-  name: String,
-  description: String,
-  price: Number,
-  image: String,
+  id: {
+    type: Number,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  image: {
+    type: String,
+    required: true
+  },
 });
 </script>
 

@@ -14,8 +14,7 @@
 
 <script setup>
 import { defineProps } from 'vue';
-
-const props = defineProps({
+defineProps({
   images: {
     type: Array,
     required: true

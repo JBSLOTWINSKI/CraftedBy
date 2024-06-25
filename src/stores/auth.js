@@ -19,37 +19,25 @@ export const useAuthStore = defineStore('auth', {
         },
 
         async register(userData) {
-            try {
-                const response = await api.post('/register', userData);
-                this.setUser(response.data.user);
-                this.setToken(response.data.access_token);
-                return true;
-            } catch (error) {
-                throw error;
-            }
+            const response = await api.post('/register', userData);
+            this.setUser(response.data.user);
+            this.setToken(response.data.access_token);
+            return true;
         },
 
         async login(credentials) {
-            try {
-                const response = await api.post('/login', credentials);
-                this.setUser(response.data.user);
-                this.setToken(response.data.access_token);
-                return true;
-            } catch (error) {
-                throw error;
-            }
+            const response = await api.post('/login', credentials);
+            this.setUser(response.data.user);
+            this.setToken(response.data.access_token);
+            return true;
         },
 
         async logout() {
-            try {
-                await api.post('/logout');
-                this.user = null;
-                this.token = null;
-                localStorage.removeItem('user');
-                localStorage.removeItem('token');
-            } catch (error) {
-                throw error;
-            }
+            await api.post('/logout');
+            this.user = null;
+            this.token = null;
+            localStorage.removeItem('user');
+            localStorage.removeItem('token');
         },
     },
 });

@@ -9,6 +9,7 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Breadcrumbs',
   setup() {
     const route = useRoute();
@@ -30,7 +31,7 @@ export default {
 .breadcrumb a {
   margin-right: 5px;
   text-decoration: none;
-  color: #2B2b42; /* couleur pour correspondre à votre thème */
+  color: #2B2b42;
 }
 .breadcrumb a:hover {
   text-decoration: underline;

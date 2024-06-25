@@ -13,18 +13,22 @@
 </template>
 
 <script>
-import { useAuthStore } from "@/stores/auth";
-import { useRouter } from "vue-router";
+import { useAuthStore } from '@/stores/auth';
+import { useRouter } from 'vue-router';
 
 export default {
-  name: "Profile",
+  name: 'Profile',
   setup() {
     const authStore = useAuthStore();
     const router = useRouter();
 
     const logout = async () => {
-      await authStore.logout();
-      await router.push({name: "Login"});
+      try {
+        await authStore.logout();
+        await router.push('/home');
+      } catch (error) {
+        console.error('Logout error:', error);
+      }
     };
 
     return {

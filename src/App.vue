@@ -29,7 +29,7 @@
 import NavbarContainer from './components/headers/NavbarContainer.vue';
 import TrustBanner from './components/footers/TrustBanner.vue';
 import Footer from './components/footers/Footer.vue';
-import Breadcrumbs from "@/components/components/breadcrumbs.vue";
+import Breadcrumbs from "@/components/components/Breadcrumb.vue";
 
 export default {
   components: {
