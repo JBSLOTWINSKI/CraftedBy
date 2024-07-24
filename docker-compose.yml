@@ -1,6 +1,6 @@
 services:
   app:
-    image: beasticn/projet-laravel-app:1.0.1
+    image: beasticn/projet-laravel-app:1.0.3
     volumes:
       - ../../PhpstormProjects/PROJET-LARAVEL:/var/www
     ports:
@@ -23,9 +23,9 @@ services:
       - laravel
 
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: beasticn/craftedby-frontend-1:1.0.3
+    volumes:
+      - ../../WebstormProjects/craftedby-frontend:/var/www
     ports:
       - "3000:80"
     networks:
