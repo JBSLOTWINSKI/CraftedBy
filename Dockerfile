@@ -15,8 +15,9 @@ FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY ./entrypoint.sh /docker-entrypoint.d/entrypoint.sh
+RUN chmod +x /docker-entrypoint.d/entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.d/entrypoint.sh"]
 
 EXPOSE 80
 
