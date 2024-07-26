@@ -66,5 +66,5 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }} # Clé SSH pour l'authentification
           script: |
             # Commandes à exécuter sur le serveur pour mettre à jour et redémarrer les conteneurs Docker
-            docker-compose -f /path/to/docker-compose-app.yml pull
-            docker-compose -f /path/to/docker-compose-app.yml up -d --remove-orphans
+            docker-compose -f ./traefik/docker-compose-app.yml pull
+            docker-compose -f ./traefik/docker-compose-app.yml up -d --remove-orphans
